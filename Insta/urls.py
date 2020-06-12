@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Insta.views import HelloWorld
-
-
+from Insta.views import HelloWorld,PostsListView
+from Insta.views import PostDetailView
 
 urlpatterns = [
-    path('', HelloWorld.as_view(),name='home')    
+    path('', HelloWorld.as_view(),name='helloword'),  
+    path('posts/', PostsListView.as_view(),name='posts'),  
+    path('post/<int:pk>/', PostDetailView.as_view(), name='posts_detail'),
 ]
