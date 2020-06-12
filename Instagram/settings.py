@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Insta',
+    'imagekit',
 ]
 ##连接创建修改的app。      
 MIDDLEWARE = [
