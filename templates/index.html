@@ -1,12 +1,41 @@
-
-
 {% load static %} 
+
+<header>
+    <ul>
+        {% if request.user.is_authenticated %}
+        <li>
+            Hi,{{request.user.username}}
+        </li>
+        <li>
+            <a href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li>
+            <a href="{% url 'login' %}">Login</a>
+        </li>
+        <li>
+            <a href="{% url 'signup' %}">Signup</a>
+        </li>
+        {% endif %}
+    
+    </ul>
+</header>
+
+
+    <div>
+        <a href="{% url 'make_post' %}">Make Post</a>
+    </div>
+</header>
+
 
 <div>
 
     {% for post in object_list %}
-        <img src="/{{post.image}}">
+        <a href="{%url 'posts_detail' post.id %}">
+            <img src="/{{post.image}}">
+        </a>
     {% endfor %}
+
 
 
 
